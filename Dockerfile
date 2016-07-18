@@ -37,6 +37,7 @@ ADD https://wordpress.org/latest.tar.gz /var/www/latest.tar.gz
 RUN cd /var/www/ && tar xvf latest.tar.gz && rm latest.tar.gz
 RUN cp -rf  /var/www/html/wordpress/* /var/www/html/
 RUN rm -rf /var/www/wordpress
+RUN rm /var/www/html/index.html
 
 # fix for php5-mcrypt
 RUN /usr/sbin/php5enmod mcrypt
