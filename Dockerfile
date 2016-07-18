@@ -45,16 +45,15 @@ RUN /usr/sbin/php5enmod mcrypt
 
 
 # Supervisor Config
-#RUN mkdir /var/log/supervisor/
-#RUN /usr/bin/easy_install supervisor
-#RUN /usr/bin/easy_install supervisor-stdout
-#ADD ./supervisord.conf /etc/supervisord.conf
+RUN mkdir /var/log/supervisor/
+RUN /usr/bin/easy_install supervisor
+RUN /usr/bin/easy_install supervisor-stdout
+ADD supervisord.conf /etc/supervisord.conf
 
 # Initialization Startup Script
-#ADD ./start.sh /start.sh
-#RUN chmod 755 /start.sh
+ADD start.sh /start.sh
+RUN chmod 755 /start.sh
 
-EXPOSE 3306
-EXPOSE 80
+EXPOSE 80 3306
 
-#CMD ["/bin/bash", "/start.sh"]
+CMD ["/bin/bash", "/start.sh"]
