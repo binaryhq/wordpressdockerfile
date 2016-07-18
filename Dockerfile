@@ -25,7 +25,7 @@ RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysq
 #ENV APACHE_RUN_USER www-data
 #ENV APACHE_RUN_GROUP www-data
 #ENV APACHE_LOG_DIR /var/log/apache2
-#RUN chown -R www-data:www-data /var/www/
+RUN chown -R www-data:www-data /var/www/
 
 # php config
 RUN sed -i -e "s/upload_max_filesize\s*=\s*2M/upload_max_filesize = 100M/g" /etc/php5/apache2/php.ini
