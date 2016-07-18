@@ -22,10 +22,10 @@ RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysq
 #RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf
 
 # apache config
-ENV APACHE_RUN_USER www-data
-ENV APACHE_RUN_GROUP www-data
-ENV APACHE_LOG_DIR /var/log/apache2
-RUN chown -R www-data:www-data /var/www/
+#ENV APACHE_RUN_USER www-data
+#ENV APACHE_RUN_GROUP www-data
+#ENV APACHE_LOG_DIR /var/log/apache2
+#RUN chown -R www-data:www-data /var/www/
 
 # php config
 RUN sed -i -e "s/upload_max_filesize\s*=\s*2M/upload_max_filesize = 100M/g" /etc/php5/apache2/php.ini
@@ -35,7 +35,7 @@ RUN sed -i -e "s/short_open_tag\s*=\s*Off/short_open_tag = On/g" /etc/php5/apach
 #wordpress installation
 ADD https://wordpress.org/latest.tar.gz /var/www/latest.tar.gz
 RUN cd /var/www/ && tar xvf latest.tar.gz && rm latest.tar.gz
-RUN mv /var/www/wordpress/* /var/www/html
+RUN mv /var/www/wordpress/* /var/www/html/
 RUN rm -rf /var/www/wordpress
 
 # fix for php5-mcrypt
