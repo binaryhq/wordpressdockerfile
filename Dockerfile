@@ -51,7 +51,7 @@ ADD supervisord.conf /etc/supervisord.conf
 
 # Initialization Startup Script
 ADD start.sh /start.sh
-RUN chmod 755 /start.sh
+RUN chmod +x  /start.sh
 
 EXPOSE 80 3306
 
