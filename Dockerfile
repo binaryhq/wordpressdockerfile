@@ -18,7 +18,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install php5-curl php5-gd php5-int
 # mysql config
 
 RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
-RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf
 
 # apache config
 ENV APACHE_RUN_USER www-data
